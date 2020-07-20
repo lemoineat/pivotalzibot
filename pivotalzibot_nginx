@@ -1,0 +1,37 @@
+server {
+
+  listen 80;
+  listen [::]:80;
+  server_name DOMAINE_NAME;
+
+  location / {
+    proxy_pass http://127.0.0.1:5001/;
+  }
+
+  # Directory needed for certbot --webroot to work.
+  location ^~ /.well-known/acme-challenge/ {
+      default_type "text/plain";
+      alias /usr/local/share/pivotalzibot/.well-known/acme-challenge/;
+  }
+}
+
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name DOMAINE_NAME;
+
+    ssl on;
+    ssl_certificate /etc/letsencrypt/live/DOMAINE_NAME/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/DOMAINE_NAME/privkey.pem;
+
+    location / {
+      proxy_pass http://127.0.0.1:5001/;
+    }
+
+    # Directory needed for certbot --webroot to work.
+    location ^~ /.well-known/acme-challenge/ {
+        default_type "text/plain";
+        alias /usr/local/share/pivotalzibot/.well-known/acme-challenge/;
+    }
+}
