@@ -1,4 +1,4 @@
-Pivotalzilla is a
+Pivotalzibot is a
 [Pivotal Tracker](https://www.pivotaltracker.com/) bot that mirrors
 changes made on [Pivotal Tracker](https://www.pivotaltracker.com/) to  [Bugzilla](https://www.bugzilla.org/). It works better with the [Pivotalzilla](https://github.com/lemoineat/Pivotalzilla/) extention for Bugzilla.
 
@@ -22,7 +22,7 @@ If you use supervisord you can put the repository in `/usr/local/share/`,  and m
 
 ### Story title
 
-Your story must be names `Bug 42: my story` where 42 is the bug on Bugzilla.
+Your story must be named `Bug 42: my story` where 42 is id off the bug on Bugzilla.
 
 ### Commments
 
