@@ -1,3 +1,8 @@
+
+
+
+
+
 #!/usr/bin/env python3
 #codinf:utf-8
 
@@ -133,7 +138,7 @@ def handle_comment_create(data:PivotalCommentCreateActivity):
             continue
         if not AT_BUG_REGEX.findall(comment):
             continue
-        comment = re.sub(AT_BUG_REGEX, '', comment)
+        #comment = re.sub(AT_BUG_REGEX, '', comment)
         if author is None:
             comment = comment + ANONYMOUS_FOOTER
         else:
