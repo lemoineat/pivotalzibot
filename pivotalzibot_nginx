@@ -11,7 +11,7 @@ server {
   # Directory needed for certbot --webroot to work.
   location ^~ /.well-known/acme-challenge/ {
       default_type "text/plain";
-      alias /usr/local/share/pivotalzibot/.well-known/acme-challenge/;
+      alias /usr/local/share/trackerzibot/.well-known/acme-challenge/;
   }
 }
 
@@ -32,6 +32,6 @@ server {
     # Directory needed for certbot --webroot to work.
     location ^~ /.well-known/acme-challenge/ {
         default_type "text/plain";
-        alias /usr/local/share/pivotalzibot/.well-known/acme-challenge/;
+        alias /usr/local/share/trackerzibot/.well-known/acme-challenge/;
     }
 }

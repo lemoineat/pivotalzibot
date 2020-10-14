@@ -1,6 +1,6 @@
-Pivotalzibot is a
+Trackerzibot is a
 [Pivotal Tracker](https://www.pivotaltracker.com/) bot that mirrors
-changes made on [Pivotal Tracker](https://www.pivotaltracker.com/) to  [Bugzilla](https://www.bugzilla.org/). It works better with the [Pivotalzilla](https://github.com/lemoineat/Pivotalzilla/) extention for Bugzilla.
+changes made on [Pivotal Tracker](https://www.pivotaltracker.com/) to  [Bugzilla](https://www.bugzilla.org/). It works better with the [trackerzilla](https://github.com/lemoineat/Trackerzilla/) extention for Bugzilla.
 
 ### Install
 
@@ -10,12 +10,12 @@ Then modifies the `config.py` file. `BUGZILLA_ADDR` is the address of your bugzi
 
 ## nginx
 
-Replace the DOMAINE_NAME occurences (for instance my.cool.domain.name.com) in `pivotalzibot_nginx`, move `pivotalzibot_nginx` in `/etc/nginx/sites-available/`, run `ln -s /etc/nginx/sites-available/pivotalzibot_nginx /etc/nginx/sites-enabled/pivotalzibot_nginx`, check the config with `nginx -t` (you may need to comment the lines begining by ssl first), then run `systemctl restart nginx` to load your config. Run `sudo certbot certonly --webroot -w /usr/local/share/pivotalzibot/ -d DOMAINE_NAME` (replace DOMAINE_NAME) to get the ssl certificat. If you commented the ssl lines, uncomment them and rerun `nginx -t` and `systemctl restart nginx`.
+Replace the DOMAINE_NAME occurences (for instance my.cool.domain.name.com) in `trackerzibot_nginx`, move `trackerzibot_nginx` in `/etc/nginx/sites-available/`, run `ln -s /etc/nginx/sites-available/trackerzibot_nginx /etc/nginx/sites-enabled/trackerzibot_nginx`, check the config with `nginx -t` (you may need to comment the lines begining by ssl first), then run `systemctl restart nginx` to load your config. Run `sudo certbot certonly --webroot -w /usr/local/share/trackerzibot/ -d DOMAINE_NAME` (replace DOMAINE_NAME) to get the ssl certificat. If you commented the ssl lines, uncomment them and rerun `nginx -t` and `systemctl restart nginx`.
 
 
 ## supervisord
 
-If you use supervisord you can put the repository in `/usr/local/share/`,  and move `pivotalzibot.conf` in `/etc/supervisor/conf.d/`, then run `supervisorctl reread`, then `supervisorctl update` to update supervisor. You can check if it works with `supervisorctl status`.
+If you use supervisord you can put the repository in `/usr/local/share/`,  and move `trackerzibot.conf` in `/etc/supervisor/conf.d/`, then run `supervisorctl reread`, then `supervisorctl update` to update supervisor. You can check if it works with `supervisorctl status`.
 
 (currently `supervisorctl stop` cant kill the bot, you can use `sudo pkill gunicorn`)
 
